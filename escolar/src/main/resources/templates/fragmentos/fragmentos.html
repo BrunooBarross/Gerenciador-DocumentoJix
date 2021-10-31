@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=devide-width, initial-scale=1.0">
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<title>Projeto Acadêmico</title>
+<meta name="author" content="Bruno Barros" />
+<link rel="stylesheet" href="css/style.css">
+<script src="https://kit.fontawesome.com/006642858d.js"></script>
+</head>
+<body>
+	<!-- Cabeçalho -->
+	<header th:fragment="cabecalho">
+
+		<nav class="navbar navbar-expand-lg navbar-dark"
+			style="background-color: #1C1C1C;">
+			<a class="navbar-brand" th:href="@{/}"> <img
+				src="/img/education.png" width="60px" />
+			</a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navMobile">
+				<span class="navbar-tolggler-icon"></span>
+			</button>
+
+			<div id="navMobile"
+				class="navbar-collapse collapse justify-content-center">
+
+				<a class="btn-nav nav-item nav-link" th:href="@{/}"><i class="fas fa-home"></i> Home</a> 
+				<a class="btn-nav nav-item nav-link" th:href="@{/inserirDocumentos}"><i class="fas fa-paste"></i>Cadastrar Documento</a> 
+				<a data-toggle="modal" data-target="#modalPesquisa" class="btn-nav nav-item nav-link"><i class="fas fa-search"></i> Pesquisar Documento</a> 
+				<a class="btn-nav nav-item nav-link btn-danger"><i class="fas fa-times"></i> Sair</a>
+			</div>
+		</nav>
+
+
+
+
+	</header>
+
+
+
+
+
+	<!-- footer -->
+	<footer th:fragment="rodape">
+		<div class="rodape">
+			<span>Todos os Direitos Reservados - 2021 &copy; Bruno Barros</span>
+		</div>
+	</footer>
+
+
+	<script src="webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

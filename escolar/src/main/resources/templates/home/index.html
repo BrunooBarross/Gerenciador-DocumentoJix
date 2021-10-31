@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=devide-width, initial-scale=1.0">
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<title>Projeto Acadêmico</title>
+<meta name="author" content="Bruno Barros" />
+<link rel="stylesheet" href="css/style.css">
+<script src="https://kit.fontawesome.com/006642858d.js"></script>
+</head>
+<body>
+
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+	<section class="neo-section"
+		style="background-image: url('img/bg-index.jpg');">
+		<div class="sombra"></div>
+
+		<div class="center neo-container">
+			<h1 class="texto-centro">Sistema gerenciador de documentos</h1>
+
+
+			<div class="botoes">
+				<div class="wm">
+					<a th:href="@{/inserirDocumentos}"><h5 class="btn">CADASTRAR DOCUMENTO</h5></a>
+				</div>
+
+				<div class="wm">
+					<a th:href="@{/filtro-documentos}"><h5
+							class="btn justify-content-center">FILTRAR EDITAR EXCLUIR</h5></a>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- 	Inicio do Modal -->
+	
+	<div class="modal fade" id="modalPesquisa">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Encontre um documento</h5>
+					<button type="button" class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+				</div>
+				<form method="post" action="pesquisar-documento" th:object="${documento}">
+					<div class="modal-body">
+						<input type="text" placeholder="Digite o nome do Documento" th:field="*{nome}" class="form-control">
+					</div>
+					<div class="modal-footer">						
+						<button type="submit" class="btn btn-primary">Pesquisar</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+					</div>				
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div th:replace="fragmentos/fragmentos :: footer"></div>
+
+
+
+	<script src="webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

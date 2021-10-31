@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=devide-width, initial-scale=1.0">
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<title>+ Inserir Documentos</title>
+<meta name="author" content="Bruno Barros"/>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://kit.fontawesome.com/006642858d.js"></script>
+</head>
+<body>
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+	
+	<div class="container" style="margin-top: 50px;">
+		<h4>+ Inserir Documentos</h4>
+		<hr>
+		<br>
+		<!-- Nome do Documento -->
+		<form method="post" action="/InsertDocumentos" th:object="${documento}">
+			<div class="row">						
+				<div class="form-group col-md-6 offset-md-3">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nome')}">
+						<label class="validation-message" th:errors="*{nome}"></label>
+					</div>	
+    				<label>Nome do Certificado:</label>
+    				<input class="form-control"  placeholder="Ex: Palestra jogos digitais" th:field="*{nome}">
+  				</div>
+			</div>	
+			
+			<!-- Tipo Atividade -->
+			<div class="row">				
+				<div class="form-group col-md-6 offset-md-3">
+    				<label>Selecione o tipo do seu certificado:</label>
+    				<select class="form-control" th:field="*{tipoatividade}" >
+    					<option th:each="tipoatividade : ${T(br.com.escolar.Enums.TipoAtividade).values()}"
+    					th:value="${tipoatividade}" th:text="${tipoatividade}"></option>
+    				
+    				</select>
+  				</div>
+			</div>
+			
+			<!-- Carga Horaria		 -->
+			<div class="row">				
+				<div class="form-group col-md-6 offset-md-3">
+    				<label class="form-label">Carga horária</label>
+    				<input type="number" class="form-control"  placeholder="Carga horária" th:field="*{carga_horaria}">
+  				</div>
+			</div>
+			
+			<!-- Arquivo		 -->			
+			
+			<div class="row">				
+				<div class="form-group col-md-6 offset-md-3">
+    				<label>Anexar certificado</label>
+  					<input type="file" class="form-control-file" th:field="*{arquivo}">				
+  				</div>
+			</div>				
+			
+			<div class="row">
+				<button type="submit" class="btn btn-success offset-md-3">SALVAR</button>
+				&nbsp;&nbsp;&nbsp;
+				<a class="btn btn-danger">VOLTAR</a>
+			</div>				
+		</form>
+	
+	</div>
+	
+	
+
+<script src="webjars/jquery/3.5.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=devide-width, initial-scale=1.0">
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<title>Resultado Pesquisa</title>
+<meta name="author" content="Bruno Barros" />
+<link rel="stylesheet" href="/css/style.css">
+<script src="https://kit.fontawesome.com/006642858d.js"></script>
+</head>
+<body>
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+	<div class="container" style="margin-top: 50px;">
+		<h3>Documentos Encontrados na Pesquisa</h3>
+		<hr>
+
+		<table class="table table-bordered table-hover">
+			<thead>
+				<th scope="col">Nome Documento</th>
+				<th scope="col">Tipo</th>
+				<th scope="col">Horas</th>
+				<th scope="col">Status</th>
+				<th scope="col">Arquivo</th>
+			</thead>
+			<tbody>
+
+				<tr scope="row" th:each="documento : ${ListaDeDocumentos}">
+					<td th:text="${documento.nome}"></td>
+					<td th:text="${documento.tipoatividade}"></td>
+					<td th:text="${documento.carga_horaria}"></td>
+					<td th:text="${documento.status}"></td>
+					<td><a th:href="@{documento.arquivo}">Download</a></td>
+				</tr>
+
+			</tbody>
+
+		</table>
+	</div>
+
+
+
+
+	<script src="webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
